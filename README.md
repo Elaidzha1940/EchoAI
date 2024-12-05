@@ -1,8 +1,10 @@
 ☕️ EchoAI.
 =====
 
-EchoAI - your intelligent companion, reflecting your thoughts and amplifying your voice.
+#### EchoAI - your intelligent companion, reflecting your thoughts and amplifying your voice.
 
- 
+
+- [Feature] Update project setting
+
 -----   
  
