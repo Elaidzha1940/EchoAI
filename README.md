@@ -4,7 +4,9 @@
 #### EchoAI - your intelligent companion, reflecting your thoughts and amplifying your voice.
 
 
-- [Feature] Update project setting
+- Update project setting
+- Add app icon, launch screen
+
 
 -----   
  
