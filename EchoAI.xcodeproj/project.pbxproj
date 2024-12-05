@@ -102,6 +102,7 @@
 				E43ED3EF2CFB72150008A76A /* Sources */,
 				E43ED3F02CFB72150008A76A /* Frameworks */,
 				E43ED3F12CFB72150008A76A /* Resources */,
+				E44154552CFB8D1700328C87 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -230,6 +231,28 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		E44154552CFB8D1700328C87 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Добавляем Homebrew в PATH, если архитектура ARM\nif [[ \"$(uname -m)\" == \"arm64\" ]]; then\n    PATH=\"/opt/homebrew/bin:$PATH\"\nfi\n\n# Проверяем, установлен ли swiftlint\nif command -v swiftlint > /dev/null; then\n    # Запускаем swiftlint с обработкой ошибок\n    swiftlint --fix || echo \"warning: SwiftLint fix failed\"\n    swiftlint || echo \"warning: SwiftLint linting failed\"\nelse\n    echo \"warning: SwiftLint is not installed. Please install it from https://github.com/realm/SwiftLint\"\nfi\n\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		E43ED3EF2CFB72150008A76A /* Sources */ = {
