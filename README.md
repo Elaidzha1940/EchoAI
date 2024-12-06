@@ -9,11 +9,11 @@
 
 ### Project Setup
 
-- **Configure Essentials**: Project settings, GitHub integration, app icon, and launch screen.
-- **Code Quality**: Integrate SwiftLint with an arm64-compatible script.
-- **Authentication Flow**: Implement routing for Signed In and Signed Out states.
-- **UI Foundation**: Set up TabBar and NavigationStacks for seamless navigation.
-- ****Global State****: Add root app state to the Environment for centralized management.
+- ***Configure Essentials***: Project settings, GitHub integration, app icon, and launch screen.
+- ***Code Quality***: Integrate SwiftLint with an arm64-compatible script.
+- ***Authentication Flow***: Implement routing for Signed In and Signed Out states.
+- ***UI Foundation***: Set up TabBar and NavigationStacks for seamless navigation.
+- ***Global State***: Add root app state to the Environment for centralized management.
 
 -----   
  
