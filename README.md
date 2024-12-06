@@ -5,7 +5,7 @@
 
 
 - Update project setting
-- Add app icon, launch screen
+- Project Settings, Github, App Icon, & Launch Screen
 - Add SwiftLint (script for arm64 compatibility)
 
 
