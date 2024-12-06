@@ -249,7 +249,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Добавляем Homebrew в PATH, если архитектура ARM\nif [[ \"$(uname -m)\" == \"arm64\" ]]; then\n    PATH=\"/opt/homebrew/bin:$PATH\"\nfi\n\n# Проверяем, установлен ли swiftlint\nif command -v swiftlint > /dev/null; then\n    # Запускаем swiftlint с обработкой ошибок\n    swiftlint --fix || echo \"warning: SwiftLint fix failed\"\n    swiftlint || echo \"warning: SwiftLint linting failed\"\nelse\n    echo \"warning: SwiftLint is not installed. Please install it from https://github.com/realm/SwiftLint\"\nfi\n\n";
+			shellScript = "if [[ \"$(uname -m)\" == arm64 ]]; then\n    export PATH=\"/opt/homebrew/bin:$PATH\"\nfi\n\nif which swiftlint > /dev/null; then\n    swiftlint --fix && swiftlint\nelse\n    echo \"warning: Swiftlint not installed, download from -\n     https://github.com/realm/SwiftLint\"\nfi\n\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -422,6 +422,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"EchoAI/Preview Content\"";
 				DEVELOPMENT_TEAM = 748RM22H5Z;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = "Echo AI";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -459,6 +460,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"EchoAI/Preview Content\"";
 				DEVELOPMENT_TEAM = 748RM22H5Z;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = "Echo AI";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
