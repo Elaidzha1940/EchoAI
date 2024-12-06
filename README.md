@@ -7,10 +7,13 @@
 
 -----
 
-- Update project setting
+### Project Setup
+
 - Project Settings, Github, App Icon, & Launch Screen
 - Add SwiftLint (script for arm64 compatibility)
 - Routing between Signed In vs Signed Out
+- Setup TabBar and NavigationStacks
+- Adding root App State to the Environment
 
 
 -----   
