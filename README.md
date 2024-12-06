@@ -1,8 +1,11 @@
 ☕️ EchoAI.
 =====
 
-#### EchoAI - your intelligent companion, reflecting your thoughts and amplifying your voice.
+#### EchoAI – your intelligent companion, reflecting your thoughts and ideas.
 
+![EchoAI](https://github.com/user-attachments/assets/8b2c99e2-7440-4565-b780-b1206da7ba3b)
+
+-----
 
 - Update project setting
 - Project Settings, Github, App Icon, & Launch Screen
