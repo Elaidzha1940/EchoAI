@@ -10,9 +10,9 @@
 import SwiftUI
 
 struct ProfileView: View {
-
+    
     @State private var showSettingsView: Bool = false
-
+    
     var body: some View {
         NavigationStack {
             Text("Profile")
@@ -23,11 +23,11 @@ struct ProfileView: View {
                     }
                 }
                 .sheet(isPresented: $showSettingsView) {
-                    Text("SettingsView")
+                    SettingsView()
                 }
         }
     }
-
+    
     private var settingsButton: some View {
         Button {
             onSettingsButtonPressed()
@@ -36,10 +36,10 @@ struct ProfileView: View {
                 .font(.headline )
         }
     }
-
+    
     private func onSettingsButtonPressed() {
         showSettingsView = true
-
+        
     }
 }
 

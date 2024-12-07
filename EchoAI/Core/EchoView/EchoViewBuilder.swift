@@ -13,7 +13,7 @@ struct EchoViewBuilder<TabbarView: View, OnboardingView: View>: View {
     var showTabBar: Bool = false
     @ViewBuilder var tabbarView: TabbarView
     @ViewBuilder var onboardingView: OnboardingView
-
+    
     var body: some View {
         ZStack {
             if showTabBar {
@@ -30,7 +30,7 @@ struct EchoViewBuilder<TabbarView: View, OnboardingView: View>: View {
 
 private struct PreviewView: View {
     @State private var showTabBar: Bool = false
-
+    
     var body: some View {
         EchoViewBuilder(
             showTabBar: showTabBar,

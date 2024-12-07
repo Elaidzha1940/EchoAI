@@ -9,15 +9,12 @@
 
 import SwiftUI
 
-// Tabbar - Signed in
-// Onboarding - Signed out
-
 struct EchoView: View {
-    @AppStorage("showTabbarView") var showTabBar: Bool = false
-
+    @State var echoState: EchoState = EchoState()
+    
     var body: some View {
         EchoViewBuilder(
-            showTabBar: showTabBar,
+            showTabBar: echoState.showTabBar,
             tabbarView: {
                 TabBarView()
             },
@@ -25,12 +22,13 @@ struct EchoView: View {
                 WelcomeView()
             }
         )
+        .environment(echoState)
     }
 }
 
 #Preview("EchoView - Tabbar") {
-    EchoView()
+    EchoView(echoState: EchoState(showTabBar: true))
 }
 #Preview("EchoView - Onboarding") {
-    EchoView()
+    EchoView(echoState: EchoState(showTabBar: false))
 }

@@ -16,12 +16,12 @@ struct TabBarView: View {
                 .tabItem {
                     Label("Explore", systemImage: "eyes")
                 }
-
+            
             ChatsView()
                 .tabItem {
                     Label("Chats", systemImage: "bubble.left.and.text.bubble.right.fill")
                 }
-
+            
             ProfileView()
                 .tabItem {
                     Label("Profile", systemImage: "person.fill")
