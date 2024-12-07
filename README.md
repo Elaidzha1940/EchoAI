@@ -18,4 +18,6 @@
 
 ### Onboarding Flow
 
+- WelcomeView & ImageLoaderView
+
 -----
