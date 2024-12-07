@@ -11,6 +11,7 @@ import SwiftUI
 
 struct SettingsView: View {
     @Environment(EchoState.self) private var echoState
+    @Environment(\.dismiss) private var dismiss
     
     var body: some View {
         NavigationStack {
@@ -27,7 +28,12 @@ struct SettingsView: View {
     
     func onSignOutPressed() {
         // do some logic Sign user Out of app!
-        echoState.updateViewState(showTabBarView: false)
+        dismiss()
+        
+        Task {
+            try? await Task.sleep(for: .seconds(1))
+            echoState.updateViewState(showTabBarView: false)
+        }
     }
 }
 
