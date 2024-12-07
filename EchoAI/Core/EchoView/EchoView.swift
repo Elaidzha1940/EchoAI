@@ -19,18 +19,10 @@ struct EchoView: View {
         EchoViewBuilder(
             showTabBar: showTabBar,
             tabbarView: {
-                ZStack {
-                    Color.blue
-                        .ignoresSafeArea()
-                    Text("Tabbar")
-                }
+                TabBarView()
             },
             onboardingView: {
-                ZStack {
-                    Color.brown
-                        .ignoresSafeArea()
-                    Text("Onboarding")
-                }
+                WelcomeView()
             }
         )
     }
