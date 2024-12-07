@@ -15,7 +15,6 @@
 - ***UI Foundation***: Set up TabBar and NavigationStacks for seamless navigation.
 - ***Global State***: Add root app state to the Environment for centralized management.
 
------   
 
 ### Onboarding Flow
- 
+-----
