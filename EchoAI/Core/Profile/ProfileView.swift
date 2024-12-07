@@ -39,7 +39,6 @@ struct ProfileView: View {
     
     private func onSettingsButtonPressed() {
         showSettingsView = true
-        
     }
 }
 
