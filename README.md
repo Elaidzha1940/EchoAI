@@ -20,5 +20,6 @@
 
 - WelcomeView & ImageLoaderView
 - OnboardingIntroView & OnboardingColorView
+- OnboardingCompletedView
 
 -----
