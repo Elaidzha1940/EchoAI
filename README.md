@@ -18,6 +18,7 @@
 
 ### Onboarding Flow
 
-- WelcomeView & ImageLoaderView 
+- WelcomeView & ImageLoaderView
+- OnboardingIntroView & OnboardingColorView
 
 -----
