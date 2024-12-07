@@ -13,7 +13,7 @@
 - ***Code Quality***: Integrate SwiftLint.
 - ***Authentication Flow***: Implement routing for `Signed In` and `Signed Out` states.
 - ***UI Foundation***: Set up TabBar and NavigationStacks for seamless navigation.
-- ***Global State***: Add root app state to the Environment for centralized management.
+- ***Global State***: Add root app state to the Environment for centralized management. 
 
 
 ### Onboarding Flow
