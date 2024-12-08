@@ -28,6 +28,7 @@
 - ExploreView: CategoryCell
 - ExploreView: CustomListCellViewiew: CategoryCell
 - ChatModel
+- ChatsView: ChatRowCellView
 - 
  
   
