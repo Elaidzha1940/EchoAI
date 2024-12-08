@@ -45,7 +45,7 @@ struct WelcomeView: View {
     private var ctaButtons: some View {
         VStack(spacing: 8) {
             NavigationLink {
-                OnboardingCompletedView()
+                OnboardingIntroView()
             } label: {
                 Text("Get Started")
                     .callToActionButton()
