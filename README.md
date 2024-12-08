@@ -25,6 +25,7 @@
 - ExploreView: HeroCellView
 - AvatarModel
 - ExploreView: CarouselView
+- ExploreView: CategoryCell
 - 
   
 -----
