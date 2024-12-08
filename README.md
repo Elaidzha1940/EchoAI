@@ -27,6 +27,7 @@
 - ExploreView: CarouselView
 - ExploreView: CategoryCell
 - ExploreView: CustomListCellViewiew: CategoryCell
+- ChatModel
 - 
  
   
