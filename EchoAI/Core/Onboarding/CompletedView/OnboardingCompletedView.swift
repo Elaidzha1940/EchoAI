@@ -12,28 +12,60 @@ import SwiftUI
 struct OnboardingCompletedView: View {
     @Environment(EchoState.self) private var root
     
+    @State private var isCompletingProfileSetup: Bool = false
+    var selectedColor: Color = .brown
+    
     var body: some View {
-        VStack {
-            Text("Onboarding Completed!")
-                .frame(maxHeight: .infinity)
+        VStack(alignment: .leading, spacing: 12) {
+            Text("Setup complete!")
+                .font(.largeTitle)
+                .fontWeight(.semibold)
+                .foregroundStyle(selectedColor)
             
-            Button {
-                onFinishButtonPressed()
-            } label: {
-                Text("Finish")
-                    .callToActionButton()
-            }
+            Text("We've set up your profile and you you're ready to start chatting.")
+                .font(.title3)
+                .fontWeight(.medium)
+                .foregroundStyle(.secondary)
         }
-        .padding(16)
+        .frame(maxHeight: .infinity)
+        .safeAreaInset(edge: .bottom, content: {
+            ctaButton
+        })
+        .padding(24)
+        .toolbar(.hidden, for: .navigationBar)
+    }
+    
+    private var ctaButton: some View {
+        Button {
+            onFinishButtonPressed()
+        } label: {
+            ZStack {
+                if isCompletingProfileSetup {
+                    ProfileView()
+                        .tint(.white)
+                } else {
+                    Text("Finish")
+                }
+            }
+            .callToActionButton()
+        }
+        .disabled(isCompletingProfileSetup)
     }
     
     func onFinishButtonPressed() {
-        // Other logic to complete onboarding
-        root.updateViewState(showTabBarView: true)
+        isCompletingProfileSetup = true
+        
+        Task {
+            try await Task.sleep(for: .seconds(3))
+            isCompletingProfileSetup = false
+            //            try await saveUserProfile(color: selectedColor)
+            
+            root.updateViewState(showTabBarView: true)
+        }
     }
 }
 
 #Preview {
-    OnboardingCompletedView()
+    OnboardingCompletedView(selectedColor: .mint)
         .environment(EchoState())
 }
