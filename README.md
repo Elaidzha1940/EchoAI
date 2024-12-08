@@ -30,7 +30,6 @@
 - ChatModel
 - ChatsView: ChatRowCellView
 - UserModel & ProfileView
-- 
- 
+- CreateAccountView & SettingsView
   
 -----
