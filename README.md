@@ -22,6 +22,7 @@
 - ***Completion Screen***: Celebrate onboarding completion and transition to the main app experience.
 
 ### TabBar Flow
-
+- ExploreView: HeroCellView
+- 
   
 -----
