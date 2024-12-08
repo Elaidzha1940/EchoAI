@@ -29,6 +29,7 @@ struct WelcomeView: View {
         }
     }
     
+    // MARK: - titleSection
     private var titleSection: some View {
         VStack(spacing: 8) {
             Text("Echo AI Ե")
@@ -42,6 +43,7 @@ struct WelcomeView: View {
         }
     }
     
+    // MARK: - ctaButtons
     private var ctaButtons: some View {
         VStack(spacing: 8) {
             NavigationLink {
@@ -62,6 +64,7 @@ struct WelcomeView: View {
         }
     }
     
+    // MARK: - policyLinks
     private var policyLinks: some View {
         HStack(spacing: 8) {
             Link(destination: URL(string: Constants.termsOfServiceUrl)!) {

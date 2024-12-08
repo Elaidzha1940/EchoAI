@@ -28,6 +28,7 @@ struct ProfileView: View {
         }
     }
     
+    // MARK: - settingsButton
     private var settingsButton: some View {
         Button {
             onSettingsButtonPressed()
@@ -37,6 +38,7 @@ struct ProfileView: View {
         }
     }
     
+    // MARK: - onSettingsButtonPressed
     private func onSettingsButtonPressed() {
         showSettingsView = true
     }

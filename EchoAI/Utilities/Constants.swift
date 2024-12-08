@@ -1,9 +1,11 @@
+//  /*
 //
-//  Constants.swift
-//  EchoAI
+//  Project EchoAI
+//  File: Constants+Ext.swift
+//  Created by: Elaidzha Shchukin
+//  Date: 08.12.2024
 //
-//  Created by Elaidzha Shchukin on 08.12.2024.
-//
+//  */
 
 import Foundation
 
