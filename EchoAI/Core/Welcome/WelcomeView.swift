@@ -10,11 +10,15 @@
 import SwiftUI
 
 struct WelcomeView: View {
+    @State var imageName: String = Constants.randomImage
+    
     var body: some View {
         NavigationStack {
             VStack {
-                Text("Welcome!")
+                ImageLoaderView(urlString: imageName)
+                Text("Welcome")
                     .frame(maxHeight: .infinity)
+                
                 NavigationLink {
                     OnboardingCompletedView()
                 } label: {
