@@ -23,6 +23,7 @@
 
 ### TabBar Flow
 - ExploreView: HeroCellView
+- AvatarModel
 - 
   
 -----
