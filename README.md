@@ -18,7 +18,7 @@
 
 ### Onboarding Flow
 
-- ***Welcome & Image Loading***: Introduce the app with a welcoming interface while preloading essential assets.
+- ***Welcome & Image Loading***: Introduce the app with a welcoming interface while preloading essential images.
 - ***Introduction & Personalization***: Guide users through the app’s features and allow theme customization with colors.
 - ***Completion Screen***: Celebrate onboarding completion and transition to the main app experience.
   
