@@ -37,13 +37,7 @@ struct HeroCellView: View {
             .foregroundStyle(.white)
             .padding(16)
             .frame(maxWidth: .infinity)
-            .background(
-                LinearGradient(colors: [
-                    Color.black.opacity(0),
-                    Color.black.opacity(0.2),
-                    Color.black.opacity(0.4)
-                ], startPoint: .top, endPoint: .bottom)
-            )
+            .addingGradientBAckgroundForText()
         })
         .cornerRadius(16)
     }
