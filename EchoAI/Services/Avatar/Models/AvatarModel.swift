@@ -58,7 +58,7 @@ struct AvatarModel: Hashable {
             
             AvatarModel(avatarId: UUID().uuidString, name: "Bedouin", characterOption: .cat, characterAction: .eating, characterLocation: .desert, profileImageName: Constants.randomImage, authorId: UUID().uuidString, dateCreated: .now),
             
-            AvatarModel(avatarId: UUID().uuidString, name: "Dunmore", characterOption: .city, characterAction: .drinking, characterLocation: .cafe, profileImageName: Constants.randomImage, authorId: UUID().uuidString, dateCreated: .now),
+            AvatarModel(avatarId: UUID().uuidString, name: "Dunmore", characterOption: .city, characterAction: .drinking, characterLocation: .cafe, profileImageName: Constants.randomImage, authorId: UUID().uuidString, dateCreated: .now)
             
         ]
     }

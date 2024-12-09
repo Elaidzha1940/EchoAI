@@ -41,7 +41,7 @@ struct HeroCellView: View {
                 LinearGradient(colors: [
                     Color.black.opacity(0),
                     Color.black.opacity(0.2),
-                    Color.black.opacity(0.4),
+                    Color.black.opacity(0.4)
                 ], startPoint: .top, endPoint: .bottom)
             )
         })
