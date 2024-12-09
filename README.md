@@ -22,8 +22,10 @@
 - ***Completion Screen***: Celebrate onboarding completion and transition to the main app experience.
 
 ### TabBar Flow
-- ExploreView: HeroCellView
-- AvatarModel
+
+- ***ExploreView***: HeroCellView - Showcase featured items or users with a visually striking and reusable component.
+- ***AvatarModel***: Represent user profile information, including avatar image, name, and additional details for personalization.
+  
 - ExploreView: CarouselView
 - ExploreView: CategoryCell
 - ExploreView: CustomListCellViewiew: CategoryCell
