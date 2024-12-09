@@ -26,8 +26,9 @@
 - ***ExploreView***: `HeroCellView` - Showcase featured items or users with a visually striking and reusable component.
 - ***AvatarModel***: Represent user profile information, including avatar image, name, and additional details for personalization.
 - ***ExploreView***: `CarouselView` - Showcase dynamic, scrollable content for an engaging and interactive user experience.- ExploreView: CategoryCell.
-  
-- ExploreView: CustomListCellViewiew: CategoryCell
+
+- ExploreView: CategoryCell
+- ExploreView: CustomListCellView
 - ChatModel
 - ChatsView: ChatRowCellView
 - UserModel & ProfileView
