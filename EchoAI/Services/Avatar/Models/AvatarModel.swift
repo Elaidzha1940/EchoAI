@@ -7,7 +7,6 @@
 //
 //  */
 
-
 import Foundation
 
 struct AvatarModel {
@@ -41,6 +40,10 @@ struct AvatarModel {
         self.dateCreated = dateCreated
     }
     
+    var characterDescription: String {
+        AvatarDescriptionBuilder(avatar: self).characterDescription
+    }
+    
     static var mock: AvatarModel {
         mocks[0]
     }
@@ -61,14 +64,52 @@ struct AvatarModel {
     }
 }
 
-enum CharacterOption {
+// MARK: AvatarDescriptionBuilder
+struct AvatarDescriptionBuilder {
+    let characterOption: CharacterOption
+    let characterAction: CharacterAction
+    let characterLocation: CharacterLocation
+    
+    init(characterOption: CharacterOption, characterAction: CharacterAction, characterLocation: CharacterLocation) {
+        self.characterOption = characterOption
+        self.characterAction = characterAction
+        self.characterLocation = characterLocation
+    }
+    
+    init(avatar: AvatarModel) {
+        self.characterOption = avatar.characterOption ?? .default
+        self.characterAction = avatar.characterAction ?? .default
+        self.characterLocation = avatar.characterLocation ?? .default
+    }
+    
+    var characterDescription: String {
+        "A \(characterOption.rawValue) \(characterAction.rawValue) music on a floating platform in the middle of the \(characterLocation.rawValue)"
+    }
+}
+
+// MARK: CharacterOption
+enum CharacterOption: String {
     case man, car, city, woman, dog, cat
+    
+    static var `default`: Self {
+        .man
+    }
 }
 
-enum CharacterAction {
-    case smiling, dancing, walking, eating, shopping, relaxing, fighting, crying, working, studying, drinking, chilling, DJing
+// MARK: CharacterAction
+enum CharacterAction: String {
+    case smiling, dancing, walking, eating, shopping, relaxing, fighting, crying, working, studying, drinking, chilling, DJing, performing
+    
+    static var `default`: Self {
+        .dancing
+    }
 }
 
-enum CharacterLocation {
+// MARK: CharacterLocation
+enum CharacterLocation: String {
     case park, desert, city, ocean, forest, space, mall, cafe, bar, club
+    
+    static var `default`: Self {
+        .city
+    }
 }
