@@ -41,7 +41,7 @@ struct OnboardingCompletedView: View {
         } label: {
             ZStack {
                 if isCompletingProfileSetup {
-                    ProfileView()
+                    ProgressView()
                         .tint(.white)
                 } else {
                     Text("Finish")
