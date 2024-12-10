@@ -83,16 +83,26 @@ struct AvatarDescriptionBuilder {
     }
     
     var characterDescription: String {
-        "A \(characterOption.rawValue) \(characterAction.rawValue) music on a floating platform in the middle of the \(characterLocation.rawValue)"
+        let prefix = characterOption.startsWithVowel ? "An" : "A"
+        return "\(prefix) \(characterOption.rawValue) \(characterAction.rawValue) music on a floating platform in the middle of the \(characterLocation.rawValue)"
     }
 }
 
 // MARK: CharacterOption
 enum CharacterOption: String, CaseIterable, Hashable {
-    case man, car, city, woman, dog, cat
+    case man, car, city, woman, dog, cat, alien
     
     static var `default`: Self {
         .man
+    }
+    
+    var startsWithVowel: Bool {
+        switch self {
+        case .alien:
+            return true
+        default:
+            return false
+        }
     }
 }
 
