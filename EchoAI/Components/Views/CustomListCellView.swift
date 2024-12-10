@@ -3,7 +3,7 @@
 //  Project EchoAI
 //  File: CustomListCellView.swift
 //  Created by: Elaidzha Shchukin
-//  Date: 09.11.2024
+//  Date: 10.11.2024
 //
 //  */
 
