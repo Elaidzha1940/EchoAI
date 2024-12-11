@@ -28,8 +28,8 @@
 - ***ExploreView***: `CarouselView` - Showcase dynamic, scrollable content for an engaging and interactive user experience.- ExploreView: CategoryCell.
 - ***ExploreView***: `CategoryCell`: Highlight curated categories with visually appealing, reusable cells designed for seamless exploration.
 - ***ExploreView***: `CustomListCellView`: Curate and display visually striking, reusable list cells that enhance exploration with smooth, engaging user interactions.
+- ***ChatModel***: A structured representation of a chat, encompassing user details, timestamps, and metadata for efficient tracking and organization.
 
-- ChatModel
 - ChatsView: ChatRowCellView
 - UserModel & ProfileView
 - CreateAccountView & SettingsView
