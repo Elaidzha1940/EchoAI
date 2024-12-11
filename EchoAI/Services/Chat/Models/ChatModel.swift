@@ -9,20 +9,20 @@
 
 import Foundation
 
-struct ChatModel {
+struct ChatModel: Identifiable {
     let id: String
     let userId: String
     let avatarId: String
     let dateCreated: Date
     let dateModified: Date
     
-    init(id: String, userId: String, avatarId: String, dateCreated: Date, dateModified: Date) {
-        self.id = id
-        self.userId = userId
-        self.avatarId = avatarId
-        self.dateCreated = dateCreated
-        self.dateModified = dateModified
-    }
+//    init(id: String, userId: String, avatarId: String, dateCreated: Date, dateModified: Date) {
+//        self.id = id
+//        self.userId = userId
+//        self.avatarId = avatarId
+//        self.dateCreated = dateCreated
+//        self.dateModified = dateModified
+//    }
     
     static var mock: ChatModel {
         mocks[0]
