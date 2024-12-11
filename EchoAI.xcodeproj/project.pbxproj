@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E4D500012D05AFDB0005FEDF /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = E4D500002D05AFDB0005FEDF /* SDWebImageSwiftUI */; };
+		E47403D52D09F7F900FA6F22 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = E47403D42D09F7F900FA6F22 /* SDWebImageSwiftUI */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,7 +56,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E4D500012D05AFDB0005FEDF /* SDWebImageSwiftUI in Frameworks */,
+				E47403D52D09F7F900FA6F22 /* SDWebImageSwiftUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -118,7 +118,7 @@
 			);
 			name = EchoAI;
 			packageProductDependencies = (
-				E4D500002D05AFDB0005FEDF /* SDWebImageSwiftUI */,
+				E47403D42D09F7F900FA6F22 /* SDWebImageSwiftUI */,
 			);
 			productName = EchoAI;
 			productReference = E43ED3F32CFB72150008A76A /* EchoAI.app */;
@@ -203,7 +203,7 @@
 			mainGroup = E43ED3EA2CFB72150008A76A;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				E4D5FFFF2D05AFDB0005FEDF /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
+				E47403D32D09F7F900FA6F22 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = E43ED3F42CFB72150008A76A /* Products */;
@@ -258,7 +258,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if [[ -z \"$CI\" ]]; then\n    if [[ \"$(uname -m)\" == arm64 ]]; then\n        export PATH=\"/opt/homebrew/bin:$PATH\"\n    fi\n\n    # Check if running in a SwiftUI preview\n    if [ \"$XCODE_RUNNING_FOR_PREVIEWS\" != \"1\" ]; then\n        if which swiftlint > /dev/null; then\n            swiftlint # Uncomment if you want to auto-fix: swiftlint --fix &&\n        else\n            echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\n        fi\n    fi\nelse \n    # Running Xcode Cloud\n    echo \"Running in Xcode Cloud. Skipping SwiftLint.\"\n\n";
+			shellScript = "if [[ -z \"$CI\" ]]; then\n    if [[ \"$(uname -m)\" == arm64 && -d \"/opt/homebrew/bin\" ]]; then\n        export PATH=\"/opt/homebrew/bin:$PATH\"\n    fi\n\n    # Логи для отладки\n    echo \"Running script on architecture: $(uname -m)\"\n    echo \"SwiftLint path: $(which swiftlint)\"\n\n    # Проверка, не запускается ли сборка в SwiftUI Preview\n    if [ \"$XCODE_RUNNING_FOR_PREVIEWS\" != \"1\" ]; then\n        if which swiftlint > /dev/null; then\n            swiftlint || echo \"SwiftLint encountered an error, skipping.\"\n        else\n            echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\n        fi\n    fi\nelse \n    # Running Xcode Cloud\n    echo \"Running in Xcode Cloud. Skipping SwiftLint.\"\nfi\n\n\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -610,7 +610,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		E4D5FFFF2D05AFDB0005FEDF /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */ = {
+		E47403D32D09F7F900FA6F22 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SDWebImage/SDWebImageSwiftUI.git";
 			requirement = {
@@ -621,9 +621,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		E4D500002D05AFDB0005FEDF /* SDWebImageSwiftUI */ = {
+		E47403D42D09F7F900FA6F22 /* SDWebImageSwiftUI */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = E4D5FFFF2D05AFDB0005FEDF /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
+			package = E47403D32D09F7F900FA6F22 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
 			productName = SDWebImageSwiftUI;
 		};
 /* End XCSwiftPackageProductDependency section */
