@@ -3,7 +3,7 @@
 //  Project EchoAI
 //  File: ChatRowCellView.swift
 //  Created by: Elaidzha Shchukin
-//  Date: 09.11.2024
+//  Date: 11.11.2024
 //
 //  */
 
