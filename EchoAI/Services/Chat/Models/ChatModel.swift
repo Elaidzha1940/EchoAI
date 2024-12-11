@@ -15,7 +15,7 @@ struct ChatModel: Identifiable {
     let avatarId: String
     let dateCreated: Date
     let dateModified: Date
-        
+    
     static var mock: ChatModel {
         mocks[0]
     }
