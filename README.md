@@ -27,8 +27,8 @@
 - ***AvatarModel***: Represent user profile information, including avatar image, name, and additional details for personalization.
 - ***ExploreView***: `CarouselView` - Showcase dynamic, scrollable content for an engaging and interactive user experience.- ExploreView: CategoryCell.
 - ***ExploreView***: `CategoryCell`: Highlight curated categories with visually appealing, reusable cells designed for seamless exploration.
+- ***ExploreView***: `CustomListCellView`: Curate and display visually striking, reusable list cells that enhance exploration with smooth, engaging user interactions.
 
-- ExploreView: CustomListCellView
 - ChatModel
 - ChatsView: ChatRowCellView
 - UserModel & ProfileView
