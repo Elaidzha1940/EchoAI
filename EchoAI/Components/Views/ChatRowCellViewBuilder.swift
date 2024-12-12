@@ -1,4 +1,4 @@
-/*
+//  /*
 //
 //  Project EchoAI
 //  File: ChatRowCellViewBuilder.swift
@@ -10,11 +10,33 @@
 import SwiftUI
 
 struct ChatRowCellViewBuilder: View {
+    var chat: ChatModel = .mock
+    var getAvatar: () async -> AvatarModel?
+    var getLastMessage: () async -> ChatMessageModel?
+    
+    @State private var avatar: AvatarModel?
+    @State private var lastChatMessage: ChatMessageModel?
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ChatRowCellView(
+            imageName: avatar?.profileImageName,
+            headline: avatar?.name,
+            subheadline: lastChatMessage?.content,
+            hasNewChat: false
+        )
+        .task {
+            avatar = await getAvatar()
+        }
+        .task {
+            lastChatMessage = await getLastMessage()
+        }
     }
 }
 
 #Preview {
-    ChatRowCellViewBuilder()
+    ChatRowCellViewBuilder(chat: .mock) {
+        return .mock
+    } getLastMessage: {
+        return .mock
+    }
 }
