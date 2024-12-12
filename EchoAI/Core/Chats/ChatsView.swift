@@ -16,7 +16,22 @@ struct ChatsView: View {
         NavigationStack {
             List {
                 ForEach(chats) { chat in
-                    Text(chat.id)
+                    ChatRowCellViewBuilder(
+                        currentUserId: nil, // Add current user ID
+                        chat: chat,
+                        getAvatar: {
+                            try? await Task.sleep(for: .seconds(2))
+                            return .mock
+                        },
+                        getLastMessage: {
+                            try? await Task.sleep(for: .seconds(2))
+                            return .mock
+                        }
+                    )
+                    .anyButton(.highlight, action:  {
+                        //
+                    })
+                    .removeListRowFormatting()
                 }
             }
             .navigationTitle("Chats")
