@@ -8,6 +8,7 @@
 //  */
 
 import Foundation
+import SwiftUI
 
 struct UserModel {
     let userId: String
@@ -27,6 +28,14 @@ struct UserModel {
         self.profileColorHex = profileColorHex
     }
     
+    var profileColorCalculated: Color {
+        guard let profileColorHex else {
+            return .accent
+        }
+        
+        return Color(hex: profileColorHex) ?? .accent
+    }
+    
     static var mock: Self {
         mocks[0]
     }
@@ -38,19 +47,19 @@ struct UserModel {
                 userId: "user1",
                 dateCreated: now,
                 didCompleteOnboarding: true,
-                profileColorHex: "#FF5733"
+                profileColorHex: "#AF5733"
             ),
             UserModel(
                 userId: "user2",
                 dateCreated: now.addingTimeInterval(days: -1),
                 didCompleteOnboarding: false,
-                profileColorHex: "#33FF57"
+                profileColorHex: "#38FF57"
             ),
             UserModel(
                 userId: "user3",
                 dateCreated: now.addingTimeInterval(days: -3, hours: -2),
                 didCompleteOnboarding: true,
-                profileColorHex: "#3357FF"
+                profileColorHex: "#34FL29"
             ),
             UserModel(
                 userId: "user4",

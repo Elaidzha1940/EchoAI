@@ -1,9 +1,11 @@
+//  /*
 //
-//  Date+Ext.swift
-//  EchoAI
+//  Project EchoAI
+//  File: Date+Ext.swift
+//  Created by: Elaidzha Shchukin
+//  Date: 11.12.2024
 //
-//  Created by Elaidzha Shchukin on 11.12.2024.
-//
+//  */
 
 import Foundation
 
