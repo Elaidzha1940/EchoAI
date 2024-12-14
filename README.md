@@ -31,8 +31,8 @@
 - ***ChatModel***: A structured representation of a chat, encompassing user details, timestamps, and metadata for efficient tracking and organization.
 - ***ChatsView***: `ChatRowCellView` - A reusable and customizable component embedded within ChatsView, representing each chat entry with detailed information like user name, avatar, and last message. 
 - ***UserModel & ProfileView***:
-     - `UserModel`: Handles user data, including profile details and customization.
-     - `ProfileView`: Displays user profiles, settings, and avatar management.
+     - `UserModel` - Handles user data, including profile details and customization.
+     - `ProfileView` - Displays user profiles, settings, and avatar management.
   
 - CreateAccountView & SettingsView
   
