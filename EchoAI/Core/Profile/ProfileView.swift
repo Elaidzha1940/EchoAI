@@ -13,7 +13,8 @@ struct ProfileView: View {
     @State private var showSettingsView: Bool = false
     @State private var showCreateAvatarView: Bool = false
     @State private var currentUser: UserModel? = .mock
-    @State private var myAvatars: [AvatarModel] = AvatarModel.mocks
+    @State private var myAvatars: [AvatarModel] = []
+    @State private var isLoading: Bool = true
     
     var body: some View {
         NavigationStack {
@@ -30,6 +31,15 @@ struct ProfileView: View {
         .fullScreenCover(isPresented: $showCreateAvatarView) {
             Text("Avatar")
         }
+        .task {
+            await loadData()
+        }
+    }
+    
+    private func loadData() async {
+        try? await Task.sleep(for: .seconds(5))
+        isLoading = false
+        myAvatars = [] /* AvatarModel.mocks*/
     }
     
     private var myInfoSection: some View {
@@ -46,19 +56,34 @@ struct ProfileView: View {
     
     private var myAvatarsSection: some View {
         Section {
-            ForEach(myAvatars, id: \.self) { avatar in
-                CustomListCellView(
-                    imageName: avatar.profileImageName,
-                    title: avatar.name,
-                    subtitle: nil
-                )
-                .anyButton(.highlight, action: {
-                    //
-                })
+            if myAvatars .isEmpty {
+                Group {
+                    if isLoading {
+                        ProgressView()
+                    } else {
+                        Text("Click + to create an avatar")
+                    }
+                }
+                .padding(50)
+                .frame(maxWidth: .infinity)
+                .font(.body)
+                .foregroundStyle(.secondary)
                 .removeListRowFormatting()
-            }
-            .onDelete { indexSet in
-                onDeleteAvatar(indexSet: indexSet)
+            } else {
+                ForEach(myAvatars, id: \.self) { avatar in
+                    CustomListCellView(
+                        imageName: avatar.profileImageName,
+                        title: avatar.name,
+                        subtitle: nil
+                    )
+                    .anyButton(.highlight, action: {
+                        //
+                    })
+                    .removeListRowFormatting()
+                }
+                .onDelete { indexSet in
+                    onDeleteAvatar(indexSet: indexSet)
+                }
             }
         } header: {
             HStack {
@@ -75,12 +100,12 @@ struct ProfileView: View {
     }
     
     private var settingsButton: some View {
-        Button {
-            onSettingsButtonPressed()
-        } label: {
-            Image(systemName: "gear")
-                .font(.headline)
-        }
+        Image(systemName: "gear")
+            .font(.headline)
+            .foregroundStyle(.accent)
+            .anyButton {
+                onSettingsButtonPressed()
+            }
     }
     
     private func onSettingsButtonPressed() {
