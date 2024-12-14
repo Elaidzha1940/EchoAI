@@ -29,9 +29,11 @@
 - ***ExploreView***: `CategoryCell` - Highlight curated categories with visually appealing, reusable cells designed for seamless exploration.
 - ***ExploreView***: `CustomListCellView` - Curate and display visually striking, reusable list cells that enhance exploration with smooth, engaging user interactions.
 - ***ChatModel***: A structured representation of a chat, encompassing user details, timestamps, and metadata for efficient tracking and organization.
-- ***ChatsView***: `ChatRowCellView` - A reusable and customizable component embedded within ChatsView, representing each chat entry with detailed information like user name, avatar, and last message.
+- ***ChatsView***: `ChatRowCellView` - A reusable and customizable component embedded within ChatsView, representing each chat entry with detailed information like user name, avatar, and last message. 
+- ***UserModel & ProfileView***:
+     - `UserModel`: Handles user data, including profile details and customization.
+     - `ProfileView`: Displays user profiles, settings, and avatar management.
   
-- UserModel & ProfileView
 - CreateAccountView & SettingsView
   
 ----- 
