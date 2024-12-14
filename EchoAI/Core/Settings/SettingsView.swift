@@ -9,17 +9,79 @@
 
 import SwiftUI
 
+fileprivate extension View {
+    
+    func rowFormatting() -> some View {
+        self
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .padding(.vertical, 12)
+            .padding(.horizontal, 16)
+            .background(Color(uiColor: .systemBackground))
+    }
+}
+
 struct SettingsView: View {
     @Environment(EchoState.self) private var echoState
     @Environment(\.dismiss) private var dismiss
     
+    @State private var isPremium: Bool = true
+    
     var body: some View {
         NavigationStack {
             List {
-                Button {
-                    onSignOutPressed()
-                } label: {
+                Section {
                     Text("Sign Out")
+                        .rowFormatting()
+                        .anyButton(.highlight) {
+                            onSignOutPressed()
+                        }
+                        .removeListRowFormatting()
+                    
+                    Text("Delete account")
+                        .foregroundStyle(.mint)
+                        .rowFormatting()
+                        .anyButton(.highlight) {
+                            
+                        }
+                        .removeListRowFormatting()
+                    
+                } header: {
+                    Text("Account")
+                }
+                
+                //
+                Section {
+                    HStack(spacing: 8) {
+                        Text("Account status: \(isPremium ? "PREMIUM" : "FREE")")
+                    }
+                    .rowFormatting()
+                    .anyButton(.highlight) {
+                        onSignOutPressed()
+                    }
+                    .removeListRowFormatting()
+                } header: {
+                    Text("Purchases")
+                }
+                
+                //
+                Section {
+                    Text("Sign Out")
+                        .rowFormatting()
+                        .anyButton(.highlight) {
+                            onSignOutPressed()
+                        }
+                        .removeListRowFormatting()
+                    
+                    Text("Delete account")
+                        .foregroundStyle(.mint)
+                        .rowFormatting()
+                        .anyButton(.highlight) {
+                            
+                        }
+                        .removeListRowFormatting()
+                    
+                } header: {
+                    Text("Account")
                 }
             }
             .navigationTitle("Settings")
