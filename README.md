@@ -33,7 +33,8 @@
 - ***UserModel & ProfileView***:
      - `UserModel` - Handles user data, including profile details and customization.
      - `ProfileView` - Displays user profiles, settings, and avatar management.
-  
-- CreateAccountView & SettingsView
+- ***CreateAccountView & SettingsView***
+     - `CreateAccountView` - Streamlined interface for users to register and begin their journey.
+     - `SettingsView` - Centralized hub for managing preferences and personalizing the app experience.
   
 ----- 
