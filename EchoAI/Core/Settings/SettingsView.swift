@@ -11,6 +11,7 @@ import SwiftUI
 
 fileprivate extension View {
     
+    // MARK: - rowFormatting
     func rowFormatting() -> some View {
         self
             .frame(maxWidth: .infinity, alignment: .leading)
@@ -24,67 +25,96 @@ struct SettingsView: View {
     @Environment(EchoState.self) private var echoState
     @Environment(\.dismiss) private var dismiss
     
-    @State private var isPremium: Bool = true
+    @State private var isPremium: Bool = false
     
     var body: some View {
         NavigationStack {
             List {
-                Section {
-                    Text("Sign Out")
-                        .rowFormatting()
-                        .anyButton(.highlight) {
-                            onSignOutPressed()
-                        }
-                        .removeListRowFormatting()
-                    
-                    Text("Delete account")
-                        .foregroundStyle(.mint)
-                        .rowFormatting()
-                        .anyButton(.highlight) {
-                            
-                        }
-                        .removeListRowFormatting()
-                    
-                } header: {
-                    Text("Account")
-                }
-                
-                //
-                Section {
-                    HStack(spacing: 8) {
-                        Text("Account status: \(isPremium ? "PREMIUM" : "FREE")")
-                    }
-                    .rowFormatting()
-                    .anyButton(.highlight) {
-                        onSignOutPressed()
-                    }
-                    .removeListRowFormatting()
-                } header: {
-                    Text("Purchases")
-                }
-                
-                //
-                Section {
-                    Text("Sign Out")
-                        .rowFormatting()
-                        .anyButton(.highlight) {
-                            onSignOutPressed()
-                        }
-                        .removeListRowFormatting()
-                    
-                    Text("Delete account")
-                        .foregroundStyle(.mint)
-                        .rowFormatting()
-                        .anyButton(.highlight) {
-                            
-                        }
-                        .removeListRowFormatting()
-                    
-                } header: {
-                    Text("Account")
-                }
+                accountSection
+                purchaseSection
+                applicationSection
             }
             .navigationTitle("Settings")
+        }
+    }
+    
+    // MARK: - Account
+    private var accountSection: some View {
+        Section {
+            Text("Sign Out")
+                .rowFormatting()
+                .anyButton(.highlight) {
+                    onSignOutPressed()
+                }
+                .removeListRowFormatting()
+            
+            Text("Delete account")
+                .foregroundStyle(.accent)
+                .rowFormatting()
+                .anyButton(.highlight) {
+                    
+                }
+                .removeListRowFormatting()
+        } header: {
+            Text("Account")
+        }
+    }
+    
+    // MARK: - Purchases
+    private var purchaseSection: some View {
+        Section {
+            HStack(spacing: 8) {
+                Text("Account status: \(isPremium ? "PREMIUM" : "FREE")")
+                Spacer(minLength: 0)
+                if isPremium {
+                    Text("MANAGE")
+                        .badgeButton()
+                }
+            }
+            .rowFormatting()
+            .anyButton(.highlight) {
+                
+            }
+            .disabled(!isPremium)
+            .removeListRowFormatting()
+        } header: {
+            Text("Purchases")
+        }
+    }
+    
+    // MARK: - Application
+    private var applicationSection: some View {
+        Section {
+            HStack {
+                Text("Build Number")
+                Spacer(minLength: 0)
+                Text("3")
+                    .foregroundStyle(.secondary)
+            }
+            .rowFormatting()
+            .removeListRowFormatting()
+            
+            HStack {
+                Text("Version")
+                Spacer(minLength: 0)
+                Text("1.0")
+                    .foregroundStyle(.secondary)
+            }
+            .rowFormatting()
+            .removeListRowFormatting()
+            
+            Text("Contact us")
+                .foregroundStyle(.blue)
+                .rowFormatting()
+                .anyButton(.highlight) {
+                    
+                }
+                .removeListRowFormatting()
+        } header: {
+            Text("Application")
+        } footer: {
+            Text("Created by Elaidzha Shchukin, \nLearn more at...")
+                .baselineOffset(6)
         }
     }
     
