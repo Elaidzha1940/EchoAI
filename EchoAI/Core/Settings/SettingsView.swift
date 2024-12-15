@@ -26,6 +26,8 @@ struct SettingsView: View {
     @Environment(\.dismiss) private var dismiss
     
     @State private var isPremium: Bool = false
+    @State private var isAnonymousUser: Bool = true
+    @State private var showCreateAccountView: Bool = false
     
     var body: some View {
         NavigationStack {
@@ -35,18 +37,30 @@ struct SettingsView: View {
                 applicationSection
             }
             .navigationTitle("Settings")
+            .sheet(isPresented: $showCreateAccountView) {
+                Text("Create Account Screen")
+            }
         }
     }
     
     // MARK: - Account
     private var accountSection: some View {
         Section {
-            Text("Sign Out")
-                .rowFormatting()
-                .anyButton(.highlight) {
-                    onSignOutPressed()
-                }
-                .removeListRowFormatting()
+            if isAnonymousUser {
+                Text("Save & back-up account")
+                    .rowFormatting()
+                    .anyButton(.highlight) {
+                        onCreateAccountPressed()
+                    }
+                    .removeListRowFormatting()
+            } else {
+                Text("Sign Out")
+                    .rowFormatting()
+                    .anyButton(.highlight) {
+                        onSignOutPressed()
+                    }
+                    .removeListRowFormatting()
+            }
             
             Text("Delete account")
                 .foregroundStyle(.accent)
@@ -86,18 +100,18 @@ struct SettingsView: View {
     private var applicationSection: some View {
         Section {
             HStack {
-                Text("Build Number")
+                Text("Version")
                 Spacer(minLength: 0)
-                Text("3")
+                Text(Utilities.appVersion ?? "")
                     .foregroundStyle(.secondary)
             }
             .rowFormatting()
             .removeListRowFormatting()
             
             HStack {
-                Text("Version")
+                Text("Build Number")
                 Spacer(minLength: 0)
-                Text("1.0")
+                Text(Utilities.buildNumber ?? "")
                     .foregroundStyle(.secondary)
             }
             .rowFormatting()
@@ -126,6 +140,10 @@ struct SettingsView: View {
             try? await Task.sleep(for: .seconds(1))
             echoState.updateViewState(showTabBarView: false)
         }
+    }
+    
+    func onCreateAccountPressed() {
+        showCreateAccountView = true
     }
 }
 
