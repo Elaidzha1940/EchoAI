@@ -9,7 +9,7 @@
 
 ### Project Setup
 
-- ***Configure Essentials***: Project settings, GitHub integration, app icon, and launch screen.
+- ***Configure Essentials***: Project settings, GitHub integration, app icon, and launch screen. 
 - ***Code Quality***: Integrate SwiftLint.
 - ***Authentication Flow***: Implement routing for `Signed In` and `Signed Out` states.
 - ***UI Foundation***: Set up TabBar and NavigationStacks for seamless navigation.
