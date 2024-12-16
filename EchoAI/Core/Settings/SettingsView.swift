@@ -9,24 +9,12 @@
 
 import SwiftUI
 
-fileprivate extension View {
-    
-    // MARK: - rowFormatting
-    func rowFormatting() -> some View {
-        self
-            .frame(maxWidth: .infinity, alignment: .leading)
-            .padding(.vertical, 12)
-            .padding(.horizontal, 16)
-            .background(Color(uiColor: .systemBackground))
-    }
-}
-
 struct SettingsView: View {
     @Environment(EchoState.self) private var echoState
     @Environment(\.dismiss) private var dismiss
     
     @State private var isPremium: Bool = false
-    @State private var isAnonymousUser: Bool = true
+    @State private var isAnonymousUser: Bool = false
     @State private var showCreateAccountView: Bool = false
     
     var body: some View {
@@ -38,7 +26,8 @@ struct SettingsView: View {
             }
             .navigationTitle("Settings")
             .sheet(isPresented: $showCreateAccountView) {
-                Text("Create Account Screen")
+                CreateAccountView()
+                    .presentationDetents([.medium])
             }
         }
     }
@@ -63,7 +52,7 @@ struct SettingsView: View {
             }
             
             Text("Delete account")
-                .foregroundStyle(.accent)
+                .foregroundStyle(.red)
                 .rowFormatting()
                 .anyButton(.highlight) {
                     
@@ -144,6 +133,17 @@ struct SettingsView: View {
     
     func onCreateAccountPressed() {
         showCreateAccountView = true
+    }
+}
+
+// MARK: - rowFormatting
+fileprivate extension View {
+    func rowFormatting() -> some View {
+        self
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .padding(.vertical, 12)
+            .padding(.horizontal, 16)
+            .background(Color(uiColor: .systemBackground))
     }
 }
 
