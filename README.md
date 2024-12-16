@@ -38,6 +38,8 @@
      - `SettingsView` - Centralized hub for managing preferences and personalizing the app experience.
  
 ### Feature Flow
+
+- ***CreateAvatarView***
 - 
   
 ----- 
