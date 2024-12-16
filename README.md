@@ -25,7 +25,7 @@
 
 - ***ExploreView***: `HeroCellView` - Showcase featured items or users with a visually striking and reusable component.
 - ***AvatarModel***: Represent user profile information, including avatar image, name, and additional details for personalization.
-- ***ExploreView***: `CarouselView` - Showcase dynamic, scrollable content for an engaging and interactive user experience.- ExploreView: CategoryCell.
+- ***ExploreView***: `CarouselView` - Showcase dynamic, scrollable content for an engaging and interactive user experience.
 - ***ExploreView***: `CategoryCell` - Highlight curated categories with visually appealing, reusable cells designed for seamless exploration.
 - ***ExploreView***: `CustomListCellView` - Curate and display visually striking, reusable list cells that enhance exploration with smooth, engaging user interactions.
 - ***ChatModel***: A structured representation of a chat, encompassing user details, timestamps, and metadata for efficient tracking and organization.
@@ -36,5 +36,8 @@
 - ***CreateAccountView & SettingsView***
      - `CreateAccountView` - Streamlined interface for users to register and begin their journey.
      - `SettingsView` - Centralized hub for managing preferences and personalizing the app experience.
+ 
+### Feature Flow
+- 
   
 ----- 
