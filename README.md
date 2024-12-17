@@ -41,6 +41,6 @@
 - ***CreateAvatarView***: A UI component for users to create and customize their avatar, including image upload and personalization options.
 - ***ChatView***: `ChatBubbleView` - An intuitive component that displays individual chat messages in a clean, conversational format, enhancing readability and user engagement.
 - ***ChatView***: `ScrollView` - A dynamic and responsive interface that allows users to smoothly browse through chat messages, enhancing interaction and user experience.
-- 
+- ***AnyAppAlert***: `Custom Alerts` - A tailored alert system that allows for personalized notifications, offering flexibility in how messages are presented to users.
   
 ----- 
