@@ -107,7 +107,7 @@ enum CharacterOption: String, CaseIterable, Hashable {
 }
 
 // MARK: CharacterAction
-enum CharacterAction: String {
+enum CharacterAction: String, CaseIterable, Hashable {
     case smiling, dancing, walking, eating, shopping, relaxing, fighting, crying, working, studying, drinking, chilling, DJing, performing
     
     static var `default`: Self {
@@ -116,7 +116,7 @@ enum CharacterAction: String {
 }
 
 // MARK: CharacterLocation
-enum CharacterLocation: String {
+enum CharacterLocation: String, CaseIterable, Hashable {
     case park, desert, city, ocean, forest, space, mall, cafe, bar, club
     
     static var `default`: Self {
