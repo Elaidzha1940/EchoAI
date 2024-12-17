@@ -7,7 +7,7 @@
 
 -----
 
->### Project Setup
+> ### Project Setup
 
 - ***Configure Essentials***: Project settings, GitHub integration, app icon, and launch screen. 
 - ***Code Quality***: Integrate SwiftLint.
@@ -15,9 +15,7 @@
 - ***UI Foundation***: Set up TabBar and NavigationStacks for seamless navigation.
 - ***Global State***: Add root app state to the Environment for centralized management. 
 
->
-
-### Onboarding Flow
+>### Onboarding Flow
 
 - ***Welcome & Image Loading***: Introduce the app with a welcoming interface while preloading essential images.
 - ***Introduction & Personalization***: Guide users through the app’s features and allow theme customization with colors.
