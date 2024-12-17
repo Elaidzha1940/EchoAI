@@ -21,16 +21,15 @@ struct CreateAvatarView: View {
     @State private var isGenerateing: Bool = false
     @State private var generatedImage: UIImage?
     
+    @State private var isSaving: Bool = false
+    
     var body: some View {
         NavigationStack {
             List {
                 nameSection
                 attributesSection
                 imageSection
-                
-                Section {
-                    Text("Save")
-                }
+                saveSection
             }
             .navigationTitle("Create Avatar")
             .toolbar {
@@ -58,10 +57,6 @@ struct CreateAvatarView: View {
         } header: {
             Text("Name your avatar*")
         }
-    }
-    
-    private func onBackButtonPressed() {
-        dismiss()
     }
     
     // MARK: - attributesSection
@@ -116,6 +111,8 @@ struct CreateAvatarView: View {
                         .tint(.accentColor)
                         .opacity(isGenerateing ? 1 : 0)
                 }
+                .disabled(isGenerateing || avatarName .isEmpty)
+                
                 Circle()
                     .fill(Color.secondary.opacity(0.3))
                     .overlay(
@@ -135,6 +132,26 @@ struct CreateAvatarView: View {
         }
     }
     
+    // MARK: - saveSection
+    private var saveSection: some View {
+        Section {
+            AsyncCallToActionButton(
+                isLoading: isSaving,
+                title: ("Save"),
+                action: onSavePressed)
+            .removeListRowFormatting()
+            .padding(.top, 24)
+            .opacity(generatedImage == nil ? 0.5 : 1.0)
+            .disabled(generatedImage == nil)
+        }
+    }
+    
+    // MARK: - onBackButtonPressed
+    private func onBackButtonPressed() {
+        dismiss()
+    }
+    
+    // MARK: - onGenerateImagePressed
     private func onGenerateImagePressed() {
         isGenerateing = true
         
@@ -145,6 +162,18 @@ struct CreateAvatarView: View {
             isGenerateing = false
         }
     }
+    
+    // MARK: - onSavePressed
+    private func onSavePressed() {
+        isSaving = true
+        
+        Task {
+            try? await Task.sleep(for: .seconds(3))
+            dismiss()
+            isSaving = false
+        }
+    }
+    
 }
 
 #Preview {

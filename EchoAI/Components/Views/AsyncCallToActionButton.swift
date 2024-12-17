@@ -50,4 +50,5 @@ private struct PreviewView: View {
 
 #Preview {
     PreviewView()
+        .padding()
 }

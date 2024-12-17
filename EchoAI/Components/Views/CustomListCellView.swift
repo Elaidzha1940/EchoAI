@@ -25,7 +25,7 @@ struct CustomListCellView: View {
                 }
             }
             .aspectRatio(1, contentMode: .fit)
-            .frame(height: 60)
+            .frame(height: 50)
             .cornerRadius(16)
             
             VStack(alignment: .leading, spacing: 4) {
