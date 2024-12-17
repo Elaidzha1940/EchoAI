@@ -7,7 +7,7 @@
 
 -----
 
-< ### Project Setup
+> ### Project Setup
 
 - ***Configure Essentials***: Project settings, GitHub integration, app icon, and launch screen. 
 - ***Code Quality***: Integrate SwiftLint.
