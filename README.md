@@ -43,6 +43,7 @@
 - ***ChatView***: `ScrollView` - A dynamic and responsive interface that allows users to smoothly browse through chat messages, enhancing interaction and user experience.
 - ***AnyAppAlert***: `Custom Alerts` - A tailored alert system that allows for personalized notifications, offering flexibility in how messages are presented to users.
 - ***ModalSupportView***: `Custom Modals` - A flexible and reusable component for displaying custom modal dialogs, providing a seamless way to present important information or actions to users.
-- ***CategoryView***: 
+- ***CategoryView***: A dynamic view that organizes and displays categories, allowing users to easily navigate through different sections or options.
+- ***Routing***: `Navigation Destinations` - 
   
 ----- 
