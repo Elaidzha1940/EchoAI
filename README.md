@@ -7,7 +7,7 @@
 
 -----
 
-> ### Project Setup
+< ### Project Setup
 
 - ***Configure Essentials***: Project settings, GitHub integration, app icon, and launch screen. 
 - ***Code Quality***: Integrate SwiftLint.
@@ -15,13 +15,13 @@
 - ***UI Foundation***: Set up TabBar and NavigationStacks for seamless navigation.
 - ***Global State***: Add root app state to the Environment for centralized management. 
 
->### Onboarding Flow
+> ### Onboarding Flow
 
 - ***Welcome & Image Loading***: Introduce the app with a welcoming interface while preloading essential images.
 - ***Introduction & Personalization***: Guide users through the app’s features and allow theme customization with colors.
 - ***Completion Screen***: Celebrate onboarding completion and transition to the main app experience.
 
-### TabBar Flow
+> ### TabBar Flow
 
 - ***ExploreView***: `HeroCellView` - Showcase featured items or users with a visually striking and reusable component.
 - ***AvatarModel***: Represent user profile information, including avatar image, name, and additional details for personalization.
@@ -37,7 +37,7 @@
      - `CreateAccountView` - Streamlined interface for users to register and begin their journey.
      - `SettingsView` - Centralized hub for managing preferences and personalizing the app experience.
  
-### Feature Flow
+> ### Feature Flow
 
 - ***CreateAvatarView***: A UI component for users to create and customize their avatar, including image upload and personalization options.
 - ***ChatView***: A UI component for displaying chat messages with a customizable ChatBubbleView, supporting various message types, dynamic layouts, and seamless user interaction.
