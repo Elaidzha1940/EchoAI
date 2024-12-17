@@ -44,6 +44,11 @@
 - ***AnyAppAlert***: `Custom Alerts` - A tailored alert system that allows for personalized notifications, offering flexibility in how messages are presented to users.
 - ***ModalSupportView***: `Custom Modals` - A flexible and reusable component for displaying custom modal dialogs, providing a seamless way to present important information or actions to users.
 - ***CategoryView***: A dynamic view that organizes and displays categories, allowing users to easily navigate through different sections or options.
-- ***Routing***: `Navigation Destinations` - 
+- ***Routing***: `Navigation Destinations` - A system that manages the navigation flow within the app, providing seamless transitions between different views and ensuring a smooth user experience.
+- ***ChatsView***: `Recent Avatars` - A feature that displays the most recent user avatars, providing a quick visual reference to past conversations and enhancing user interaction.
+
+> ### Recap: View Layers
+
+-
   
 ----- 
