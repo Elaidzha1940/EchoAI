@@ -39,8 +39,8 @@
 > ### Feature Flow
 
 - ***CreateAvatarView***: A UI component for users to create and customize their avatar, including image upload and personalization options.
-- ***ChatView***: A UI component for displaying chat messages with a customizable ChatBubbleView, supporting various message types, dynamic layouts, and seamless user interaction.
-- ***ChatView***: `ScrollView` -
+- ***ChatView***: `ChatBubbleView` - An intuitive component that displays individual chat messages in a clean, conversational format, enhancing readability and user engagement.
+- ***ChatView***: `ScrollView` - A dynamic and responsive interface that allows users to smoothly browse through chat messages, enhancing interaction and user experience.
 - 
   
 ----- 
