@@ -40,6 +40,6 @@
 ### Feature Flow
 
 - ***CreateAvatarView***: A UI component for users to create and customize their avatar, including image upload and personalization options.
-- 
+- ***ChatView***: `ChatBubbleView` - 
   
 ----- 
