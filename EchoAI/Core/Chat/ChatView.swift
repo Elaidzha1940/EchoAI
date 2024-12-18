@@ -46,8 +46,8 @@ struct ChatView: View {
                                 showProfileModal = false
                             }
                         )
-                        .transition(.slide)
                         .padding(40)
+                        .transition(.slide)
                     }
                 }
             }
