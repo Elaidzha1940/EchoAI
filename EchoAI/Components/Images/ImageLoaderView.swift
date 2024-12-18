@@ -34,17 +34,6 @@ struct ImageLoaderView: View {
     }
 }
 
-extension View {
-    @ViewBuilder
-    func ifSatisfiedCondition(_ condition: Bool, transform: (Self) -> some View) -> some View {
-        if condition {
-            self // with modifier
-        } else {
-            
-        }
-    }
-}
-
 #Preview {
     ImageLoaderView()
         .frame(width: 100, height: 200)

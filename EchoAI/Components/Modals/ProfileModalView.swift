@@ -19,7 +19,10 @@ struct ProfileModalView: View {
     var body: some View {
         VStack(spacing: 0) {
             if let imageName {
-                ImageLoaderView(urlString: imageName)
+                ImageLoaderView(
+                    urlString: imageName,
+                    forceTransitionAnimation: false
+                )
                     .aspectRatio(1, contentMode: .fit)
             }
             

@@ -21,38 +21,9 @@ struct ChatView: View {
     @State private var showProfileModal: Bool = false
     
     var body: some View {
-        ZStack {
-            VStack(spacing: 0) {
-                scrollViewSection
-                texFieldSection
-            }
-            
-            ZStack {
-                if showProfileModal {
-                    Color.black.opacity(0.5)
-                        .ignoresSafeArea()
-                        .transition(AnyTransition.opacity.animation(.smooth))
-                        .onTapGesture {
-                            showProfileModal = false
-                        }
-                    
-                    if let avatar {
-                        ProfileModalView(
-                            imageName: avatar.profileImageName,
-                            title: avatar.name,
-                            subtitle: avatar.characterOption?.rawValue.capitalized,
-                            headline: avatar.characterDescription,
-                            onXMarkPressed: {
-                                showProfileModal = false
-                            }
-                        )
-                        .padding(40)
-                        .transition(.slide)
-                    }
-                }
-            }
-            .animation(.bouncy, value: showProfileModal)
-            .zIndex(9999)
+        VStack(spacing: 0) {
+            scrollViewSection
+            texFieldSection
         }
         .navigationTitle(avatar?.name ?? "Chat")
         .toolbarTitleDisplayMode(.inline)
@@ -67,6 +38,11 @@ struct ChatView: View {
         }
         .showCustomAlert(type: .confirmationDialog, alert: $showChatSettings)
         .showCustomAlert(alert: $showAlert)
+        .showModal(showModal: $showProfileModal) {
+            if let avatar {
+                profileModal(avatar: avatar)
+            }
+        }
     }
     
     // MARK: - scrollViewSection
@@ -123,6 +99,21 @@ struct ChatView: View {
             .padding(.horizontal, 12)
             .padding(.vertical, 6)
             .background(Color(uiColor: .secondarySystemBackground))
+    }
+    
+    // MARK: - profileModal
+    private func profileModal(avatar: AvatarModel) -> some View {
+        ProfileModalView(
+            imageName: avatar.profileImageName,
+            title: avatar.name,
+            subtitle: avatar.characterOption?.rawValue.capitalized,
+            headline: avatar.characterDescription,
+            onXMarkPressed: {
+                showProfileModal = false
+            }
+        )
+        .padding(40)
+        .transition(.slide)
     }
     
     // MARK: - onSendMessagePressed
