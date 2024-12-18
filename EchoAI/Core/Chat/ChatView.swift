@@ -9,6 +9,25 @@
 
 import SwiftUI
 
+extension Binding where Value == Bool {
+    
+    init<T: Sendable>(ifNotNil value: Binding<T?>) {
+        self.init {
+            value.wrappedValue != nil
+        } set: { newValue in
+            if !newValue {
+                value.wrappedValue = nil
+            }
+        }
+    }
+}
+
+struct AnyAppAlert: Sendable {
+    var title: String
+    var subtitle: String?
+    var buttons: @Sendable () -> AnyView
+}
+
 struct ChatView: View {
     @State private var chatMessages: [ChatMessageModel] = ChatMessageModel.mocks
     @State private var avatar: AvatarModel? = .mock
@@ -16,8 +35,8 @@ struct ChatView: View {
     @State private var textField: String = ""
     @State private var showChatSettings: Bool = false
     @State private var scrollPosition: String?
-    @State private var showAlert: Bool = false
-    @State private var alertTitle: String = ""
+    
+    @State private var showAlert: AnyAppAlert?
     
     var body: some View {
         VStack(spacing: 0) {
@@ -46,12 +65,12 @@ struct ChatView: View {
         } message: {
             Text("What would you like to do?")
         }
-        .alert(alertTitle, isPresented: $showAlert) {
-            Button("OK") {
-                //
-            }
+        .alert(showAlert?.title ?? "", isPresented: Binding(ifNotNil: $showAlert)) {
+            showAlert?.buttons()
         } message: {
-            Text("")
+            if let subtitle = showAlert?.subtitle {
+                Text(subtitle)
+            }
         }
     }
     
@@ -129,8 +148,23 @@ struct ChatView: View {
             textField = ""
             
         } catch let error {
-            alertTitle = error.localizedDescription
-            showAlert = true
+            showAlert = AnyAppAlert(
+                title: error.localizedDescription,
+                subtitle: "Some subtitle here",
+                buttons: {
+                    AnyView(
+                        Group {
+                            Button("Hooo") {
+                                //
+                            }
+                            Button("Wooo") {
+                                //
+                            }
+                        }
+                    )
+                }
+            )
+            //            showAlert = true
         }
     }
     
