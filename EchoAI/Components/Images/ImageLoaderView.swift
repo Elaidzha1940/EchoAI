@@ -17,6 +17,7 @@ struct ImageLoaderView: View {
     
     var body: some View {
         Rectangle()
+            .opacity(0.5)
             .opacity(0.001)
             .overlay(
                 WebImage(url: URL(string: urlString))
@@ -26,11 +27,10 @@ struct ImageLoaderView: View {
                     .allowsHitTesting(false)
             )
             .clipped()
-        ifSatisfiedCondition(forceTransitionAnimation) { content in
-            content
-                .drawingGroup()
-            
-        }
+            .ifSatisfiedCondition(forceTransitionAnimation) { content in
+                content
+                    .drawingGroup()
+            }
     }
 }
 
@@ -38,6 +38,6 @@ struct ImageLoaderView: View {
     ImageLoaderView()
         .frame(width: 100, height: 200)
         .anyButton(.highlight) {
-            
+            //
         }
 }
