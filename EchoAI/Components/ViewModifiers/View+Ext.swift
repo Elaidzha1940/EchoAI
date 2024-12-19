@@ -54,9 +54,9 @@ extension View {
     @ViewBuilder
     func ifSatisfiedCondition(_ condition: Bool, transform: (Self) -> some View) -> some View {
         if condition {
-            self // with modifier
+            transform(self) // with modifier
         } else {
-            
+            self
         }
     }
 }

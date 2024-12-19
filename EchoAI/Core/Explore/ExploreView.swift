@@ -25,6 +25,7 @@ struct ExploreView: View {
         }
     }
     
+    // MARK: - featuredSection
     private var featuredSection: some View {
         Section {
             ZStack {
@@ -44,6 +45,7 @@ struct ExploreView: View {
         }
     }
     
+    // MARK: - categorySection
     private var categorySection: some View {
         Section {
             ZStack {
@@ -51,7 +53,7 @@ struct ExploreView: View {
                     HStack(spacing: 8) {
                         ForEach(categories, id: \.self) { category in
                             CategoryCellView(
-                                title: category.rawValue.capitalized,
+                                title: category.plural.capitalized,
                                 imageName: Constants.randomImage)
                             .anyButton {
                                 
@@ -70,6 +72,7 @@ struct ExploreView: View {
         }
     }
     
+    // MARK: - popularSection
     private var popularSection: some View {
         Section {
             ForEach(popularAvatars, id: \.self) { avatar in
