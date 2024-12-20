@@ -46,7 +46,7 @@ enum CharacterOption: String, CaseIterable, Hashable {
     }
 }
 
-// MARK: CharacterAction
+// MARK: - CharacterAction
 enum CharacterAction: String, CaseIterable, Hashable {
     case smiling, dancing, walking, eating, shopping, relaxing, fighting, crying, working, studying, drinking, chilling, DJing, performing
     
@@ -55,7 +55,7 @@ enum CharacterAction: String, CaseIterable, Hashable {
     }
 }
 
-// MARK: CharacterLocation
+// MARK: - CharacterLocation
 enum CharacterLocation: String, CaseIterable, Hashable {
     case park, desert, city, ocean, forest, space, mall, cafe, bar, club
     
@@ -64,7 +64,7 @@ enum CharacterLocation: String, CaseIterable, Hashable {
     }
 }
 
-// MARK: AvatarDescriptionBuilder
+// MARK: - AvatarDescriptionBuilder
 struct AvatarDescriptionBuilder {
     let characterOption: CharacterOption
     let characterAction: CharacterAction

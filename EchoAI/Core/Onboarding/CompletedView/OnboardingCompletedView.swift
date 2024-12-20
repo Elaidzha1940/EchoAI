@@ -38,6 +38,7 @@ struct OnboardingCompletedView: View {
         .toolbar(.hidden, for: .navigationBar)
     }
     
+    // MARK: - onFinishButtonPressed
     func onFinishButtonPressed() {
         isCompletingProfileSetup = true
         

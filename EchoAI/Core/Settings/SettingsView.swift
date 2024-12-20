@@ -121,6 +121,7 @@ struct SettingsView: View {
         }
     }
     
+    // MARK: - onSignOutPressed
     func onSignOutPressed() {
         // do some logic Sign user Out of app!
         dismiss()
@@ -131,6 +132,7 @@ struct SettingsView: View {
         }
     }
     
+    // MARK: - onCreateAccountPressed
     func onCreateAccountPressed() {
         showCreateAccountView = true
     }

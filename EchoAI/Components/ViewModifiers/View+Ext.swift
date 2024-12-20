@@ -20,6 +20,7 @@ extension View {
             .cornerRadius(16)
     }
     
+    // MARK: - badgeButton
     func badgeButton() -> some View {
         self
             .font(.caption)
@@ -31,16 +32,19 @@ extension View {
             .cornerRadius(6)
     }
     
+    // MARK: - tappableBackground
     func tappableBackground() -> some View {
         background(Color.black.opacity(0.001))
     }
     
+    // MARK: - removeListRowFormatting
     func removeListRowFormatting() -> some View {
         self
             .listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
             .listRowBackground(Color.clear)
     }
     
+    // MARK: - addingGradientBAckgroundForText
     func addingGradientBAckgroundForText() -> some View {
         background(
             LinearGradient(colors: [

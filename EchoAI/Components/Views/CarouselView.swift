@@ -54,6 +54,7 @@ struct CarouselView<Content: View, T: Hashable>: View {
         }
     }
     
+    // MARK: - updateSelectionIfNeeded
     private func updateSelectionIfNeeded() {
         if selection == nil || selection == items.last {
             selection = items.first
