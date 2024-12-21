@@ -55,5 +55,11 @@
   
 ----- 
 
-#****AI Chat App: Data Layers****
+****AI Chat App: Data Layers****
 
+> ### Manage Authentication
+
+- ***Set up Firebase***
+
+
+-----
