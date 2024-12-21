@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		E42B8B2B2D0F5EEE00A42924 /* SwiftfulUtilities in Frameworks */ = {isa = PBXBuildFile; productRef = E42B8B2A2D0F5EEE00A42924 /* SwiftfulUtilities */; };
+		E433F78C2D17563200B2AF2A /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = E433F78B2D17563200B2AF2A /* FirebaseAuth */; };
 		E47403D52D09F7F900FA6F22 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = E47403D42D09F7F900FA6F22 /* SDWebImageSwiftUI */; };
 /* End PBXBuildFile section */
 
@@ -58,6 +59,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E47403D52D09F7F900FA6F22 /* SDWebImageSwiftUI in Frameworks */,
+				E433F78C2D17563200B2AF2A /* FirebaseAuth in Frameworks */,
 				E42B8B2B2D0F5EEE00A42924 /* SwiftfulUtilities in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -122,6 +124,7 @@
 			packageProductDependencies = (
 				E47403D42D09F7F900FA6F22 /* SDWebImageSwiftUI */,
 				E42B8B2A2D0F5EEE00A42924 /* SwiftfulUtilities */,
+				E433F78B2D17563200B2AF2A /* FirebaseAuth */,
 			);
 			productName = EchoAI;
 			productReference = E43ED3F32CFB72150008A76A /* EchoAI.app */;
@@ -208,6 +211,7 @@
 			packageReferences = (
 				E47403D32D09F7F900FA6F22 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
 				E42B8B272D0F5E7600A42924 /* XCRemoteSwiftPackageReference "SwiftfulUtilities" */,
+				E433F78A2D17563200B2AF2A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = E43ED3F42CFB72150008A76A /* Products */;
@@ -622,6 +626,14 @@
 				minimumVersion = 1.1.5;
 			};
 		};
+		E433F78A2D17563200B2AF2A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 11.6.0;
+			};
+		};
 		E47403D32D09F7F900FA6F22 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SDWebImage/SDWebImageSwiftUI.git";
@@ -637,6 +649,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = E42B8B272D0F5E7600A42924 /* XCRemoteSwiftPackageReference "SwiftfulUtilities" */;
 			productName = SwiftfulUtilities;
+		};
+		E433F78B2D17563200B2AF2A /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E433F78A2D17563200B2AF2A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
 		};
 		E47403D42D09F7F900FA6F22 /* SDWebImageSwiftUI */ = {
 			isa = XCSwiftPackageProductDependency;
