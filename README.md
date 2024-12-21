@@ -49,6 +49,8 @@
 
 > ### Recap: View Layers
 
--
+- Mastery: View Layers
+- Outro: View Layers
+- Test: SwiftUI View Layers
   
 ----- 
