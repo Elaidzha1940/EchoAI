@@ -5,7 +5,7 @@
 
 ![EchoAI](https://github.com/user-attachments/assets/8b2c99e2-7440-4565-b780-b1206da7ba3b) 
 
-****AI Chat App: View Layers****
+****Echo AI App: View Layers****
 > ### Project Setup
 
 - ***Configure Essentials***: Project settings, GitHub integration, app icon, and launch screen. 
@@ -55,7 +55,7 @@
   
 ----- 
 
-****AI Chat App: Data Layers****
+****Echo AI App: Data Layers****
 
 > ### Manage Authentication
 
