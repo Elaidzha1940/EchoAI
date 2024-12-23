@@ -60,6 +60,8 @@
 > ### Manage Authentication
 
 - ***Set up Firebase***
+- ****FirebaseAuthService***: `Anonymous`.
+- 
 
 
 -----
