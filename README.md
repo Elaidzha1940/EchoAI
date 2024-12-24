@@ -60,7 +60,7 @@
 > ### Manage Authentication
 
 - ***Set up Firebase***
-- ****FirebaseAuthService***: `Anonymous`.
+- ***FirebaseAuthService***: `Anonymous`.
 - ***FirebaseAuthService***: `Apple`.
 - ***MockAuthService***
 - ***AuthManager***
