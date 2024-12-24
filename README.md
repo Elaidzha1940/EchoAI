@@ -67,6 +67,8 @@
 
 > ### Manage Users
 
-- 
+- ***UserManager***: `Set Up`.
+- ***UserManager***: `Syncing`.
+- ***UserManager***: `Saving`.
 
 -----
