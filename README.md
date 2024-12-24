@@ -61,7 +61,10 @@
 
 - ***Set up Firebase***
 - ****FirebaseAuthService***: `Anonymous`.
-- 
+- ***FirebaseAuthService***: `Apple`.
+- ***MockAuthService***
+- ***AuthManager***
+
 
 
 -----
