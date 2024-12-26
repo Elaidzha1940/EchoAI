@@ -46,14 +46,17 @@ struct UserAuthInfo: Sendable {
 
 struct FirebaseAuthService {
     
-    func getAuthenticatedUser() -> User? {
+    func getAuthenticatedUser() -> UserAuthInfo? {
         if let user = Auth.auth().currentUser {
-            return user
+            return UserAuthInfo(user: user)
         }
         return nil
     }
     
-    func signInAnonymously() async throws -> AuthDataResult {
-        try await Auth.auth().signInAnonymously()
+    func signInAnonymously() async throws -> (user: UserAuthInfo, isNewUser: Bool) {
+        let result = try await Auth.auth().signInAnonymously()
+        let user = UserAuthInfo(user: result.user)
+        let isNewUser = result.additionalUserInfo?.isNewUser ?? true
+        return (user, isNewUser)
     }
 }
