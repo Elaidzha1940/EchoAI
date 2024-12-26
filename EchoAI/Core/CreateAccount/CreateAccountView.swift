@@ -10,6 +10,9 @@
 import SwiftUI
 
 struct CreateAccountView: View {
+    @Environment(\.authService) private var authService
+    @Environment(\.dismiss) private var dismiss
+    
     var title: String = "Create Account"
     var subTitle: String = "Don't lose your data! Connect to an SSO provider to save your account."
     
@@ -30,7 +33,7 @@ struct CreateAccountView: View {
                     style: .black, cornerRadius: 10)
                 .frame(height: 55)
                 .anyButton(.press) {
-                    //
+                    onSignInApplePressed()
                 }
             }
             
@@ -38,6 +41,20 @@ struct CreateAccountView: View {
         }
         .padding(16)
         .padding(.top, 40)
+    }
+    
+    // MARK: - onSignInApplePressed
+    func onSignInApplePressed() {
+        Task {
+            do {
+                let result = try await authService.signInApple()
+                
+                print("Did sign in with apple.")
+                dismiss()
+            } catch {
+                print("Eror signing in with apple.")
+            }
+        }
     }
 }
 

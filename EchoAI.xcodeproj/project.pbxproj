@@ -10,6 +10,7 @@
 		E42B8B2B2D0F5EEE00A42924 /* SwiftfulUtilities in Frameworks */ = {isa = PBXBuildFile; productRef = E42B8B2A2D0F5EEE00A42924 /* SwiftfulUtilities */; };
 		E433F78C2D17563200B2AF2A /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = E433F78B2D17563200B2AF2A /* FirebaseAuth */; };
 		E47403D52D09F7F900FA6F22 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = E47403D42D09F7F900FA6F22 /* SDWebImageSwiftUI */; };
+		E476B8F82D1CDE02000533B3 /* SignInAppleAsync in Frameworks */ = {isa = PBXBuildFile; productRef = E476B8F72D1CDE02000533B3 /* SignInAppleAsync */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E476B8F82D1CDE02000533B3 /* SignInAppleAsync in Frameworks */,
 				E47403D52D09F7F900FA6F22 /* SDWebImageSwiftUI in Frameworks */,
 				E433F78C2D17563200B2AF2A /* FirebaseAuth in Frameworks */,
 				E42B8B2B2D0F5EEE00A42924 /* SwiftfulUtilities in Frameworks */,
@@ -125,6 +127,7 @@
 				E47403D42D09F7F900FA6F22 /* SDWebImageSwiftUI */,
 				E42B8B2A2D0F5EEE00A42924 /* SwiftfulUtilities */,
 				E433F78B2D17563200B2AF2A /* FirebaseAuth */,
+				E476B8F72D1CDE02000533B3 /* SignInAppleAsync */,
 			);
 			productName = EchoAI;
 			productReference = E43ED3F32CFB72150008A76A /* EchoAI.app */;
@@ -212,6 +215,7 @@
 				E47403D32D09F7F900FA6F22 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
 				E42B8B272D0F5E7600A42924 /* XCRemoteSwiftPackageReference "SwiftfulUtilities" */,
 				E433F78A2D17563200B2AF2A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				E476B8F62D1CDE02000533B3 /* XCRemoteSwiftPackageReference "SignInAppleAsync" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = E43ED3F42CFB72150008A76A /* Products */;
@@ -435,11 +439,10 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = EchoAI/EchoAI.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"EchoAI/Preview Content\"";
-				DEVELOPMENT_TEAM = 748RM22H5Z;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -476,11 +479,10 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = EchoAI/EchoAI.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"EchoAI/Preview Content\"";
-				DEVELOPMENT_TEAM = 748RM22H5Z;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -648,6 +650,14 @@
 				minimumVersion = 3.1.3;
 			};
 		};
+		E476B8F62D1CDE02000533B3 /* XCRemoteSwiftPackageReference "SignInAppleAsync" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwiftfulThinking/SignInAppleAsync.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -665,6 +675,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = E47403D32D09F7F900FA6F22 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
 			productName = SDWebImageSwiftUI;
+		};
+		E476B8F72D1CDE02000533B3 /* SignInAppleAsync */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E476B8F62D1CDE02000533B3 /* XCRemoteSwiftPackageReference "SignInAppleAsync" */;
+			productName = SignInAppleAsync;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

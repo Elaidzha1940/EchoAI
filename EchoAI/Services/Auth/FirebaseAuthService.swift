@@ -9,39 +9,10 @@
 
 import SwiftUI
 import FirebaseAuth
+import SignInAppleAsync
 
 extension EnvironmentValues {
     @Entry var authService: FirebaseAuthService = FirebaseAuthService()
-}
-
-struct UserAuthInfo: Sendable {
-    let uid: String
-    let email: String?
-    let isAnonymous: Bool
-    let creationDate: Date?
-    let lastSignInDate: Date?
-    
-    init(
-        uid: String,
-        email: String? = nil,
-        isAnonymous: Bool = false,
-        creationDate: Date? = nil,
-        lastSignInDate: Date? = nil
-    ) {
-        self.uid = uid
-        self.email = email
-        self.isAnonymous = isAnonymous
-        self.creationDate = creationDate
-        self.lastSignInDate = lastSignInDate
-    }
-    
-    init(user: User) {
-        self.uid = user.uid
-        self.email = user.email
-        self.isAnonymous = user.isAnonymous
-        self.creationDate = user.metadata.creationDate
-        self.lastSignInDate = user.metadata.lastSignInDate
-    }
 }
 
 struct FirebaseAuthService {
@@ -55,8 +26,28 @@ struct FirebaseAuthService {
     
     func signInAnonymously() async throws -> (user: UserAuthInfo, isNewUser: Bool) {
         let result = try await Auth.auth().signInAnonymously()
-        let user = UserAuthInfo(user: result.user)
-        let isNewUser = result.additionalUserInfo?.isNewUser ?? true
+        return result.asAuthInfo
+    }
+    
+    func signInApple() async throws -> (user: UserAuthInfo, isNewUser: Bool) {
+        let helper = await SignInWithAppleHelper()
+        let response = try await helper.signIn()
+        
+        let crdential = OAuthProvider.credential(
+            providerID: AuthProviderID.apple,
+            idToken: response.token,
+            rawNonce: response.nonce)
+        
+        let result = try await Auth.auth().signIn(with: crdential)
+        return result.asAuthInfo
+    }
+}
+
+extension AuthDataResult {
+    
+    var asAuthInfo: (user: UserAuthInfo, isNewUser: Bool) {
+        let user = UserAuthInfo(user: user)
+        let isNewUser = additionalUserInfo?.isNewUser ?? true
         return (user, isNewUser)
     }
 }

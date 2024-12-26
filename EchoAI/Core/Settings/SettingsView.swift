@@ -12,6 +12,7 @@ import SwiftUI
 struct SettingsView: View {
     @Environment(EchoState.self) private var echoState
     @Environment(\.dismiss) private var dismiss
+    @Environment(\.authService) private var authService
     
     @State private var isPremium: Bool = false
     @State private var isAnonymousUser: Bool = false
@@ -28,6 +29,9 @@ struct SettingsView: View {
             .sheet(isPresented: $showCreateAccountView) {
                 CreateAccountView()
                     .presentationDetents([.medium])
+            }
+            .onAppear {
+                setAnonymousAccountStatus()
             }
         }
     }
@@ -135,6 +139,11 @@ struct SettingsView: View {
     // MARK: - onCreateAccountPressed
     func onCreateAccountPressed() {
         showCreateAccountView = true
+    }
+    
+    // MARK: - setAnonymousAccountStatus
+    func setAnonymousAccountStatus() {
+        isAnonymousUser = authService.getAuthenticatedUser()?.isAnonymous == true
     }
 }
 
