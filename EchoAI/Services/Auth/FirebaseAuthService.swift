@@ -41,6 +41,29 @@ struct FirebaseAuthService {
         let result = try await Auth.auth().signIn(with: crdential)
         return result.asAuthInfo
     }
+    
+    func signOut() throws {
+        try Auth.auth().signOut()
+    }
+    
+    func deleteAccount() async throws {
+        guard let user = Auth.auth().currentUser else {
+            throw AuthError.userNotFound
+        }
+        
+        try await  user.delete()
+    }
+    
+    enum AuthError: LocalizedError {
+        case userNotFound
+        
+        var errorDescription: String? {
+            switch self {
+            case .userNotFound:
+                return "Currenet authenticated user not found."
+            }
+        }
+    }
 }
 
 extension AuthDataResult {
