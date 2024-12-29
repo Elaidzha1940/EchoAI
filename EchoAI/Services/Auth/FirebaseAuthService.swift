@@ -38,6 +38,12 @@ struct FirebaseAuthService {
             idToken: response.token,
             rawNonce: response.nonce)
         
+        // Try to link to existing anonymous account
+        if let user = Auth.auth().currentUser, user.isAnonymous, let result = try? await user.link(with: crdential) {
+            return result.asAuthInfo
+        }
+        
+        // Otherwise sign in to new account
         let result = try await Auth.auth().signIn(with: crdential)
         return result.asAuthInfo
     }

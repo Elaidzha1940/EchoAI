@@ -27,6 +27,13 @@ struct EchoView: View {
         .task {
             await checkUserStatus()
         }
+        .onChange(of: echoState.showTabBar) { _, showTabBar in
+            if !showTabBar {
+                Task {
+                    await checkUserStatus() 
+                }
+            }
+        }
     }
     
     private func checkUserStatus() async {
