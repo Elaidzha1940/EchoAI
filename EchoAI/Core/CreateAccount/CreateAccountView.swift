@@ -10,7 +10,7 @@
 import SwiftUI
 
 struct CreateAccountView: View {
-    @Environment(\.authService) private var authService
+    @Environment(\.authService) private var authService 
     @Environment(\.dismiss) private var dismiss
     
     var title: String = "Create Account"
@@ -47,7 +47,8 @@ struct CreateAccountView: View {
     func onSignInApplePressed() {
         Task {
             do {
-                let result = try await authService.signInApple()
+//                let result = try await authService.signInApple()
+                _ = try await authService.signInApple()
                 
                 print("Did sign in with apple.")
                 dismiss()
