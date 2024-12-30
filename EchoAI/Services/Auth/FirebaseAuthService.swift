@@ -38,9 +38,24 @@ struct FirebaseAuthService {
             idToken: response.token,
             rawNonce: response.nonce)
         
-        // Try to link to existing anonymous account
-        if let user = Auth.auth().currentUser, user.isAnonymous, let result = try? await user.link(with: crdential) {
-            return result.asAuthInfo
+        if let user = Auth.auth().currentUser, user.isAnonymous {
+            do {
+                // Try to link to existing anonymous account
+                let result = try await user.link(with: crdential)
+                return result.asAuthInfo
+            } catch let error as NSError {
+                let authError = AuthErrorCode(rawValue: error.code)
+                switch authError {
+                    
+                case .providerAlreadyLinked, .credentialAlreadyInUse:
+                    if let secondaryCrdential = error.userInfo["FIRAuthErrorUserInfoUpdatedCredentialKey"] as? AuthCredential {
+                        let result = try await Auth.auth().signIn(with: secondaryCrdential)
+                        return result.asAuthInfo
+                    }
+                default:
+                    break
+                }
+            }
         }
         
         // Otherwise sign in to new account
