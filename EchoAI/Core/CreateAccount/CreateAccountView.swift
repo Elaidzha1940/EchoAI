@@ -15,7 +15,7 @@ struct CreateAccountView: View {
     
     var title: String = "Create Account"
     var subTitle: String = "Don't lose your data! Connect to an SSO provider to save your account."
-    var onDidSignIn: ((_ inNewUser: Bool) -> Void)
+    var onDidSignIn: ((_ inNewUser: Bool) -> Void)?
     
     var body: some View {
         VStack(spacing: 24) {
@@ -48,8 +48,7 @@ struct CreateAccountView: View {
     func onSignInApplePressed() {
         Task {
             do {
-                //                let result = try await authService.signInApple()
-                _ = try await authService.signInApple()
+                let result = try await authService.signInApple()
                 
                 print("Did sign in with apple.")
                 onDidSignIn?(result.isNewUser)
