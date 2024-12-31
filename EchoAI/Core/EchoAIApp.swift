@@ -16,8 +16,19 @@ struct EchoAIApp: App {
     
     var body: some Scene {
         WindowGroup {
-            EchoView()
+            EnvironmentBuildView {
+                EchoView()
+            }
         }
+    }
+}
+
+struct EnvironmentBuildView<Content: View>: View {
+    @ViewBuilder var content: () -> Content
+    
+    var body: some View {
+        content()
+            .environment(\.authService, FirebaseAuthService())
     }
 }
 
