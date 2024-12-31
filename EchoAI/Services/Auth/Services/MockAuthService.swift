@@ -3,7 +3,7 @@
 //  Project EchoAI
 //  File: MockAuthService.swift
 //  Created by: Elaidzha Shchukin
-//  Date: 24.11.2024
+//  Date: 31.12.2024
 //
 //  */
 
@@ -15,6 +15,12 @@ struct MockAuthService: AuthSevice {
     
     init(user: UserAuthInfo? = nil) {
         self.currentUser = user
+    }
+    
+    func addAuthenticatedUserListener(onListenerAttached: (any NSObjectProtocol) -> Void) -> AsyncStream<UserAuthInfo?> {
+        AsyncStream { continuation in
+            continuation.yield(currentUser)
+        }
     }
     
     func getAuthenticatedUser() -> UserAuthInfo? {
