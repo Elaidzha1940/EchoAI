@@ -78,5 +78,8 @@
 - ***AvatarManager***: `Download Avatars`
 - ***AvatarManager***: `Recent Avatars`
 - ***AvatarManager***: `Popular Avatars`
+- ***AvatarManager***: `Preview Avatars`
+- ***AvatarManager***: `Delete Avatars`
+
 
 -----
