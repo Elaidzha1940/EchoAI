@@ -74,7 +74,7 @@
 > ### Manage Avatars
 
 - ***AIManager***: `Generate Images`
-
+- ***AvatarManager***: `Upload Avatars`
 
 
 -----
