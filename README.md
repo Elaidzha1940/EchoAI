@@ -76,5 +76,7 @@
 - ***AIManager***: `Generate Images`
 - ***AvatarManager***: `Upload Avatars`
 - ***AvatarManager***: `Download Avatars`
+- ***AvatarManager***: `Recent Avatars`
+
 
 -----
