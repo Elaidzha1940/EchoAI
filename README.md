@@ -69,6 +69,10 @@
 
 - ***UserManager***: `Set Up`.
 - ***UserManager***: `Syncing`.
-- ***UserManager***: `Saving`. 
+- ***UserManager***: `Saving`.
+
+> ### Manage Avatars
+
+- 
 
 -----
