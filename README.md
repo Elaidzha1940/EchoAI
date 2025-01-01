@@ -73,6 +73,8 @@
 
 > ### Manage Avatars
 
-- 
+- ***AIManager***: `Generate Images`
+
+
 
 -----
