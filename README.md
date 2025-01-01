@@ -77,6 +77,6 @@
 - ***AvatarManager***: `Upload Avatars`
 - ***AvatarManager***: `Download Avatars`
 - ***AvatarManager***: `Recent Avatars`
-
+- ***AvatarManager***: `Popular Avatars`
 
 -----
