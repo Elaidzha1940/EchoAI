@@ -12,21 +12,42 @@ import SwiftUI
 
 struct UserModel {
     let userId: String
-    let dateCreated: Date?
+    let email: String?
+    let isAnonymous: Bool?
+    let creationDate: Date?
+    let lastSignInDate: Date?
     let didCompleteOnboarding: Bool?
     let profileColorHex: String?
     
     init(
         userId: String,
-        dateCreated: Date? = nil,
+        email: String? = nil,
+        isAnonymous: Bool? = nil,
+        creationDate: Date? = nil,
+        lastSignInDate: Date? = nil,
         didCompleteOnboarding: Bool? = nil,
         profileColorHex: String? = nil
     ) {
         self.userId = userId
-        self.dateCreated = dateCreated
+        self.email = email
+        self.isAnonymous = isAnonymous
+        self.creationDate = creationDate
+        self.lastSignInDate = lastSignInDate
         self.didCompleteOnboarding = didCompleteOnboarding
         self.profileColorHex = profileColorHex
     }
+    
+//    init(
+//        userId: String,
+//        dateCreated: Date? = nil,
+//        didCompleteOnboarding: Bool? = nil,
+//        profileColorHex: String? = nil
+//    ) {
+//        self.userId = userId
+//        self.dateCreated = dateCreated
+//        self.didCompleteOnboarding = didCompleteOnboarding
+//        self.profileColorHex = profileColorHex
+//    }
     
     var profileColorCalculated: Color {
         guard let profileColorHex else {
