@@ -81,5 +81,9 @@
 - ***AvatarManager***: `Preview Avatars`
 - ***AvatarManager***: `Delete Avatars`
 
+> ### Manage Chats
+
+-
+
 
 -----
