@@ -9,8 +9,19 @@
 
 import SwiftUI
 
-protocol UserService {
+protocol UserService: Sendable {
+    func saveUser(user: UserModel) async throws
+}
+
+import FirebaseFirestore
+struct FirebaseUserService: UserService {
+    var colletion: CollectionReference {
+        Firestore.firestore().collection("users")
+    }
     
+    func saveUser(user: UserModel) async throws {
+        try colletion .document(user.userId).setData(from: user, merge: true)
+    }
 }
 
 @MainActor
@@ -26,6 +37,8 @@ class UserManager {
     }
     
     func logIn(auth: UserAuthInfo, isNewUser: Bool) async throws {
-        
+        let creationVersion = isNewUser ? Utilities.appVersion : nil
+        let user = UserModel(auth: auth, creationVersion: creationVersion)
+        try await service.saveUser(user: user)
     }
 }
