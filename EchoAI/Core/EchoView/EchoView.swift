@@ -70,9 +70,10 @@ struct EchoView: View {
     }
 }
 
-#Preview("EchoView - Tabbar") {
-    EchoView(echoState: EchoState(showTabBar: true))
-}
+//#Preview("EchoView - Tabbar") {
+//    EchoView(echoState: EchoState(showTabBar: true))
+//}
+
 #Preview("EchoView - Onboarding") {
     EchoView(echoState: EchoState(showTabBar: false))
 }
