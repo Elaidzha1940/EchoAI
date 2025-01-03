@@ -11,7 +11,38 @@ import SwiftUI
 
 protocol UserService: Sendable {
     func saveUser(user: UserModel) async throws
+    func markOnboardingCompleted(userId: String, profileColorHex: String) async throws
     func streamUser(userId: String, onListenerConfigured: @escaping (ListenerRegistration) -> Void) -> AsyncThrowingStream<UserModel, Error>
+    func deleteUser(userId: String) async throws
+}
+
+struct MockUserService: UserService {
+    
+    let currentUser: UserModel?
+    
+    init(user: UserModel? = nil) {
+        self.currentUser = user
+    }
+    
+    func saveUser(user: UserModel) async throws {
+        //
+    }
+    
+    func markOnboardingCompleted(userId: String, profileColorHex: String) async throws {
+        //
+    }
+    
+    func streamUser(userId: String, onListenerConfigured: @escaping (any ListenerRegistration) -> Void) -> AsyncThrowingStream<UserModel, any Error> {
+        AsyncThrowingStream { continuation in
+            if let currentUser {
+                continuation.yield(currentUser)
+            }
+        }
+    }
+    
+    func deleteUser(userId: String) async throws {
+        //
+    }
 }
 
 import FirebaseFirestore
@@ -24,6 +55,13 @@ struct FirebaseUserService: UserService {
     
     func saveUser(user: UserModel) async throws {
         try colletion .document(user.userId).setData(from: user, merge: true)
+    }
+    
+    func markOnboardingCompleted(userId: String, profileColorHex: String) async throws {
+        try await colletion.document(userId).updateData([
+            UserModel.CodingKeys.didCompleteOnboarding.rawValue: true,
+            UserModel.CodingKeys.profileColorHex.rawValue: profileColorHex
+        ])
     }
     
     func streamUser(userId: String, onListenerConfigured: @escaping (ListenerRegistration) -> Void) -> AsyncThrowingStream<UserModel, Error> {
@@ -73,13 +111,31 @@ class UserManager {
         }
     }
     
+    func markOnboardingCompleteForCurrentUser(profileColorHex: String) async throws {
+        let uid = try currentUserId()
+        try await service.markOnboardingCompleted(userId: uid, profileColorHex: profileColorHex)
+    }
+    
     func signOut() {
         currentUserListener?.remove()
         currentUserListener = nil
         currentUser = nil
     }
     
-    func deleteCurrentUser() {
-        
+    func deleteCurrentUser() async throws {
+        let uid = try currentUserId()
+        try await service.deleteUser(userId: uid)
+        signOut()
+    }
+    
+    private func currentUserId() throws -> String {
+        guard let uid = currentUser?.userId else {
+            throw UserManagerError.noUserId
+        }
+        return uid
+    }
+    
+    enum UserManagerError: LocalizedError {
+        case noUserId
     }
 }
